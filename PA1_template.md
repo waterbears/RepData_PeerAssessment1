@@ -43,7 +43,7 @@ Mean is 9354.2295 and median is 10395.
 # compute daily activity pattern
 activity.hourly <- tapply(activity$steps, activity$Time, mean, na.rm=T)
 # plot
-plot(to.time(to.str(names(activity.hourly))), activity.hourly, type='l', main='Daily activity pattern')
+plot(to.time(to.str(names(activity.hourly))), activity.hourly, type='l', main='Daily activity pattern', xlab='Time', ylab='Steps')
 ```
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
@@ -71,7 +71,7 @@ for(row in 1:dim(activity)[1]) {
 }
 # histogram of daily activity
 activity.imputed.sum.step <- tapply(activity.imputed$steps, factor(activity.imputed$Date), sum)
-hist(activity.imputed.sum.step, breaks=10)
+hist(activity.imputed.sum.step, breaks=10, main='Steps taken per day, imputed', xlab='steps')
 ```
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 

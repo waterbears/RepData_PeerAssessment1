@@ -35,7 +35,7 @@ Mean is `r activity.daily.mean` and median is `r activity.daily.median`.
 # compute daily activity pattern
 activity.hourly <- tapply(activity$steps, activity$Time, mean, na.rm=T)
 # plot
-plot(to.time(to.str(names(activity.hourly))), activity.hourly, type='l', main='Daily activity pattern')
+plot(to.time(to.str(names(activity.hourly))), activity.hourly, type='l', main='Daily activity pattern', xlab='Time', ylab='Steps')
 # most active time
 max.time <- which.max(activity.hourly)
 max.time.str <- to.str(names(max.time))
@@ -57,7 +57,7 @@ for(row in 1:dim(activity)[1]) {
 }
 # histogram of daily activity
 activity.imputed.sum.step <- tapply(activity.imputed$steps, factor(activity.imputed$Date), sum)
-hist(activity.imputed.sum.step, breaks=10)
+hist(activity.imputed.sum.step, breaks=10, main='Steps taken per day, imputed', xlab='steps')
 # imputed mean and median
 imputed.activity.daily.mean <- mean(activity.imputed.sum.step)
 imputed.activity.daily.median <- median(activity.imputed.sum.step)
